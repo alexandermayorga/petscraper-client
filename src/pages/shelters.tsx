@@ -1,5 +1,6 @@
 import Layout, { siteTitle } from "@/components/Layout";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Shelters() {
   return (
@@ -34,7 +35,7 @@ export default function Shelters() {
                   <abbr title="Email">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                   </abbr>{" "}
-                  <a href="mailto:info@aarfhouston.org">info@aarfhouston.org</a>
+                  <Link href="mailto:info@aarfhouston.org">info@aarfhouston.org</Link>
                   <div className="shelterNfo__website">
                     <i className="fa fa-globe" aria-hidden="true"></i>{" "}
                     <a href="https://www.aarfhouston.org/">aarfhouston.org</a>
@@ -61,7 +62,7 @@ export default function Shelters() {
                   <abbr title="Email">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                   </abbr>{" "}
-                  N/A
+                  <Link href="mailto:info@houstonspca.org">info@houstonspca.org</Link>
                   <div className="shelterNfo__website">
                     <i className="fa fa-globe" aria-hidden="true"></i>{" "}
                     <a href="https://www.houstonspca.org/">houstonspca.org</a>
