@@ -1,15 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./style.module.scss";
+import { iPet } from "@/lib/iPet";
 
-export default function PetCard({ pet }) {
+
+export default function PetCard(props: {pet: iPet}) {
+  const { pet } = props;
   //imgs[]
   //name
   //sex
   //breed
   //domain
   //petURI
-
 
   const template = (
     <div className="card petCard mb-4">

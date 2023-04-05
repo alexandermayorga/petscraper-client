@@ -19,7 +19,7 @@ export default function About() {
           <div className="row">
             <div className="col-sm-12 ">
               <p>
-                Hi, my name is Alex and I'm a
+                Hi, my name is Alex and {"I'm"} a
                 <span role="img" aria-label="laptop emoji" className="mx-2">
                   👨🏻‍💻
                 </span>
@@ -33,12 +33,12 @@ export default function About() {
                 Before I started this project I was initially looking for ideas
                 to help me practice my web dev skills. I wanted to do something
                 that combined a topic that matter to me and that other people
-                might share an interest on. I've always been a dog person and
-                for a long time I've been wanting to adopt one but my current
+                might share an interest on. {"I've"} always been a dog person and
+                for a long time {"I've"} been wanting to adopt one but my current
                 situation has not allowed for it (...yet).
               </p>
               <p>
-                So with that in mind, whenever I've looked at shelter websites I
+                So with that in mind, whenever {"I've"} looked at shelter websites I
                 noticed some of them were not the most user friendly. Hence, I
                 thought on doing something for our furry friends
                 <span role="img" aria-label="dog emoji" className="mx-2">

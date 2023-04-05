@@ -34,8 +34,8 @@ export default function Documentation() {
               </code>
               <div className="h3">Filter by Sex</div>
               <p>
-                You can filter out your results by sex. The ":sex" parameter
-                accepts "male" and "female".
+                You can filter out your results by sex. The {'":sex"'} parameter
+                accepts {'"male"'} and {'"female"'}.
               </p>
               <code
                 className="bg-white d-block p-3 rounded mb-4"
@@ -45,8 +45,8 @@ export default function Documentation() {
               </code>
               <div className="h3">Search by Breed</div>
               <p>
-                You can submit a GET request with your "SEARCH_TEXT" as the
-                value for the "breed" query parameter.
+                You can submit a GET request with your {'"SEARCH_TEXT"'} as the
+                value for the {'"breed"'} query parameter.
               </p>
               <code
                 className="bg-white d-block p-3 rounded mb-4"
@@ -62,7 +62,7 @@ export default function Documentation() {
               <div className="display-4">Results</div>
               <hr />
               <p>
-                If <strong>"size"</strong> and <strong>"offset"</strong> are not
+                If <strong>{'"size"'}</strong> and <strong>{'"offset"'}</strong> are not
                 specified, by default you will get the first 20 documents. Below
                 is an example setting size to 20 and offset to 60.
               </p>
@@ -71,16 +71,16 @@ export default function Documentation() {
                 style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}
               >
                 {`{`} <br />
-                "total" : 64,
+                {'"total"'} : 64,
                 <br />
-                "pages" : 4, <br />
-                "size" : 20,
+                {'"pages"'} : 4, <br />
+                {'"size"'} : 20,
                 <br />
-                "offset" : 60,
+                {'"offset"'} : 60,
                 <br />
-                "count" : 4,
+                {'"count"'} : 4,
                 <br />
-                "results" : [{`{`}Animal.Documents{`}`},...]
+                {'"results"'} : [{`{`}Animal.Documents{`}`},...]
                 <br />
                 {`}`}
               </code>
@@ -90,10 +90,10 @@ export default function Documentation() {
                 </li>
                 <li>
                   Because the offset is <strong>60</strong> and there are only{" "}
-                  <strong>4</strong> documents remaining. Hence, "count" is 4.
+                  <strong>4</strong> documents remaining. Hence, {'"count"'} is 4.
                 </li>
                 <li>
-                  The <strong>"pages"</strong> parameter is equal to{" "}
+                  The <strong>{'"pages"'}</strong> parameter is equal to{" "}
                   <strong>( total results / size )</strong>. In case you need
                   pagination :).
                 </li>
@@ -106,24 +106,24 @@ export default function Documentation() {
                 style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}
               >
                 {`{`} <br />
-                "imgs" : [String],
+                {'"imgs"'} : [String],
                 <br />
-                "status" : String, <br />
-                "_id" : String,
+                {'"status"'} : String, <br />
+                {'"_id"'} : String,
                 <br />
-                "petURI" : String,
+                {'"petURI"'} : String,
                 <br />
-                "domain" : String,
+                {'"domain"'} : String,
                 <br />
-                "petId" : String,
+                {'"petId"'} : String,
                 <br />
-                "age" : String,
+                {'"age"'} : String,
                 <br />
-                "breed" : String,
+                {'"breed"'} : String,
                 <br />
-                "sex" : String,
+                {'"sex"'} : String,
                 <br />
-                "name" : String,
+                {'"name"'} : String,
                 <br />
                 {`}`}
               </code>
@@ -131,40 +131,40 @@ export default function Documentation() {
               <div className="h2">Description</div>
               <ul>
                 <li>
-                  <strong>"imgs" :</strong> An Array of Strings. This are links
+                  <strong>{'"imgs"'} :</strong> An Array of Strings. This are links
                   to the animal images
                 </li>
                 <li>
-                  <strong>"status" :</strong> You will only get "Active". The
-                  app runs every day and 'deactivates' any animals that are no
+                  <strong>{'"status"'} :</strong> You will only get {'"Active"'}. The
+                  app runs every day and {"'deactivates'"} any animals that are no
                   longer active on origin site
                 </li>
                 <li>
-                  <strong>"_id" :</strong> The document ID
+                  <strong>{'"_id"'} :</strong> The document ID
                 </li>
                 <li>
-                  <strong>"petURI" :</strong> The URI to the animal's profile in
+                  <strong>{'"petURI"'} :</strong> The URI to the {"animal's"} profile in
                   the origin site
                 </li>
                 <li>
-                  <strong>"domain" :</strong> The URI to the origin site
+                  <strong>{'"domain"'} :</strong> The URI to the origin site
                 </li>
                 <li>
-                  <strong>"petId" :</strong> The ID of the animal in the origin
+                  <strong>{'"petId"'} :</strong> The ID of the animal in the origin
                   site
                 </li>
                 <li>
-                  <strong>"age" :</strong> The animal age. Descriptions change
-                  from site to site so this can look like "Young" or "3"
+                  <strong>{'"age"'} :</strong> The animal age. Descriptions change
+                  from site to site so this can look like {'"Young"'} or {'"3"'}
                 </li>
                 <li>
-                  <strong>"breed" :</strong> The animal's breed
+                  <strong>{'"breed"'} :</strong> The {"animal's"} breed
                 </li>
                 <li>
-                  <strong>"sex" :</strong> The animal's sex
+                  <strong>{'"sex"'} :</strong> The {"animal's"} sex
                 </li>
                 <li>
-                  <strong>"name" :</strong> The animal's name
+                  <strong>{'"name"'} :</strong> The {"animal's"} name
                 </li>
               </ul>
               <div className="d-block p-5"></div>

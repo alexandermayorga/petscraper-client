@@ -1,8 +1,15 @@
-import React, {useState} from 'react'
+import React,{ KeyboardEvent } from 'react'
 
-export default function SearchBox({onSearch,inputText,onChange}) {
+type SearchBoxProps = {
+    onSearch: Function,
+    inputText:string,
+    onChange: Function
+}
 
-    const handleKeyPress = (e) => {
+export default function SearchBox(props:SearchBoxProps) {
+    const {onSearch,inputText,onChange} = props;
+
+    const handleKeyPress = (e:KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") onSearch(inputText);
     }
 
@@ -19,7 +26,7 @@ export default function SearchBox({onSearch,inputText,onChange}) {
             aria-label="Search by Breed"
             value={inputText}
             onChange={(e)=>{onChange(e.target.value)}}
-            onKeyPress={handleKeyPress}
+            onKeyUp={handleKeyPress} //Deprecated
             />
             <div className="input-group-append">
                 <button 

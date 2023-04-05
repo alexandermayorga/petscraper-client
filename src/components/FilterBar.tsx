@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import SearchBox from "./SearchBox";
 
-export default function FilterBar({
-  results,
-  sexValue,
-  onSearch,
-  onSexFilterChange,
-  onFiltersReset,
-}) {
+type FilterBarProps = {
+  results:number,
+  sexValue:string,
+  onSearch:Function,
+  onSexFilterChange:Function,
+  onFiltersReset:Function,
+}
+
+export default function FilterBar(props:FilterBarProps) {
+  const {results,sexValue,onSearch,onSexFilterChange,onFiltersReset} = props;
+  
   const [inputText, setInputText] = useState("");
 
   const handleResetClick = () => {

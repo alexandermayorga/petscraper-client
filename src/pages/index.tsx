@@ -9,12 +9,13 @@ import { useState, useEffect } from "react";
 import PetCard from "@/components/PetCard";
 import { getPetsData } from "@/lib/pets";
 import Pagination from "@/components/Pagination";
-import { iPet } from "@/lib/iPet";
+import { iPet, iPetsResult } from "@/lib/iPet";
+import { BaseContext } from "next/dist/shared/lib/utils";
 
 // const inter = Inter({ subsets: ["latin"] });
 const baseURI = `${process.env.NEXT_PUBLIC_API_URI}api/search`;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:BaseContext) {
 
   const allPetsData = await getPetsData();
   
@@ -32,12 +33,21 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Home({initialPets, resultsData}) {
+type ResultsDataProps = {
+  total:number,
+  pages:number,
+  size:number,
+  offset:number,
+  count:number
+}
+
+export default function Home(props: {initialPets:iPet[], resultsData:ResultsDataProps}) {
+  const {initialPets, resultsData} = props
   // console.log(resultsData)
   const [petData, setPetData] = useState({
     petList: initialPets || null,
-    pages: resultsData.pages || null,
-    total: resultsData.total || null,
+    pages: resultsData.pages || 0,
+    total: resultsData.total || 0,
   });
   const [uriParams, setUriParams] = useState({
     currentPage: 1,
@@ -79,17 +89,17 @@ export default function Home({initialPets, resultsData}) {
   const { petList, pages, total } = petData;
   const { currentPage, sex, queryText } = uriParams;
 
-  const handleSearchFilter = (newValue) => {
+  const handleSearchFilter = (newValue:string) => {
     setUriParams((prevState) => {
       return { ...prevState, queryText: newValue, currentPage: 1 };
     });
   };
-  const handleSexFilterChange = (newValue) => {
+  const handleSexFilterChange = (newValue:string) => {
     setUriParams((prevState) => {
       return { ...prevState, sex: newValue, currentPage: 1 };
     });
   };
-  const handlePageChange = (newValue) => {
+  const handlePageChange = (newValue:number) => {
     setUriParams((prevState) => {
       return { ...prevState, currentPage: newValue };
     });
@@ -111,25 +121,25 @@ export default function Home({initialPets, resultsData}) {
   };
 
   //For testing only
-  const printPetPlaceholders = () => {
-    const pet = {
-      imgs: ["https://placehold.co/750"],
-      name: "test",
-      sex: "male",
-      breed: "Terrier",
-      domain: "domain.com",
-      petURI: "domain.com",
-    };
-    const pets = [];
-    for (let index = 1; index < 13; index++) {
-      pets.push(pet);
-    }
-    return pets.map((pet, i) => (
-      <div key={i} className="col-md-6 col-lg-4 col-xl-3">
-        <PetCard pet={pet} />
-      </div>
-    ));
-  };
+  // const printPetPlaceholders = () => {
+  //   const pet = {
+  //     imgs: ["https://placehold.co/750"],
+  //     name: "test",
+  //     sex: "male",
+  //     breed: "Terrier",
+  //     domain: "domain.com",
+  //     petURI: "domain.com",
+  //   };
+  //   const pets = [];
+  //   for (let index = 1; index < 13; index++) {
+  //     pets.push(pet);
+  //   }
+  //   return pets.map((pet, i) => (
+  //     <div key={i} className="col-md-6 col-lg-4 col-xl-3">
+  //       <PetCard pet={pet} />
+  //     </div>
+  //   ));
+  // };
 
   const noResultsTemplate = (
     <div className="col">
@@ -138,7 +148,7 @@ export default function Home({initialPets, resultsData}) {
           <div className="h3 mb-3">
             Oh No! There are no results matching your search
           </div>
-          <p>Maybe try a different keyword like "Terrier"</p>
+          <p>Maybe try a different keyword like {"Terrier"}</p>
         </div>
       </div>
     </div>
@@ -155,7 +165,7 @@ export default function Home({initialPets, resultsData}) {
             <div className="col-sm-12">
               <FilterBar
                 results={total}
-                queryText={queryText}
+                // queryText={queryText}
                 onSearch={handleSearchFilter}
                 sexValue={sex}
                 onSexFilterChange={handleSexFilterChange}
