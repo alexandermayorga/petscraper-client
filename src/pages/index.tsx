@@ -15,10 +15,9 @@ import { BaseContext } from "next/dist/shared/lib/utils";
 // const inter = Inter({ subsets: ["latin"] });
 const baseURI = `${process.env.NEXT_PUBLIC_API_URI}api/search`;
 
-export async function getServerSideProps(context:BaseContext) {
-
+export async function getServerSideProps(context: BaseContext) {
   const allPetsData = await getPetsData();
-  
+
   return {
     props: {
       initialPets: allPetsData.results,
@@ -28,21 +27,24 @@ export async function getServerSideProps(context:BaseContext) {
         size: allPetsData.size,
         offset: allPetsData.offset,
         count: allPetsData.count,
-      }
+      },
     },
   };
 }
 
 type ResultsDataProps = {
-  total:number,
-  pages:number,
-  size:number,
-  offset:number,
-  count:number
-}
+  total: number;
+  pages: number;
+  size: number;
+  offset: number;
+  count: number;
+};
 
-export default function Home(props: {initialPets:iPet[], resultsData:ResultsDataProps}) {
-  const {initialPets, resultsData} = props
+export default function Home(props: {
+  initialPets: iPet[];
+  resultsData: ResultsDataProps;
+}) {
+  const { initialPets, resultsData } = props;
   // console.log(resultsData)
   const [petData, setPetData] = useState({
     petList: initialPets || null,
@@ -55,7 +57,6 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
     queryText: "",
   });
 
-
   useEffect(() => {
     const { currentPage, sex, queryText } = uriParams;
 
@@ -64,7 +65,6 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
     if (sex !== "all") fetchURI += `&sex=${sex}`;
     if (currentPage !== 1) fetchURI += `&offset=${20 * (currentPage - 1)}`;
 
-
     let cancel: Canceler;
 
     axios
@@ -72,7 +72,6 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       })
       .then((res) => {
-
         setPetData({
           petList: res.data.results,
           pages: res.data.pages,
@@ -89,17 +88,17 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
   const { petList, pages, total } = petData;
   const { currentPage, sex, queryText } = uriParams;
 
-  const handleSearchFilter = (newValue:string) => {
+  const handleSearchFilter = (newValue: string) => {
     setUriParams((prevState) => {
       return { ...prevState, queryText: newValue, currentPage: 1 };
     });
   };
-  const handleSexFilterChange = (newValue:string) => {
+  const handleSexFilterChange = (newValue: string) => {
     setUriParams((prevState) => {
       return { ...prevState, sex: newValue, currentPage: 1 };
     });
   };
-  const handlePageChange = (newValue:number) => {
+  const handlePageChange = (newValue: number) => {
     setUriParams((prevState) => {
       return { ...prevState, currentPage: newValue };
     });
@@ -113,10 +112,8 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
   };
 
   const showAnimalList = () => {
-    return petList.map((pet:iPet) => (
-      <div key={pet._id} className="col-md-6 col-lg-4 col-xl-3">
-        <PetCard pet={pet} />
-      </div>
+    return petList.map((pet: iPet) => (
+      <PetCard pet={pet} template="vertical" key={pet._id} />
     ));
   };
 
@@ -161,6 +158,7 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
       </Head>
       <main>
         <div className="container">
+          
           <div className="row">
             <div className="col-sm-12">
               <FilterBar
@@ -173,6 +171,7 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
               />
             </div>
           </div>
+
           <div className="row">
             {/* {printPetPlaceholders()} */}
             {!petList && <div className="col-sm-12">Loading...</div>}
@@ -181,6 +180,7 @@ export default function Home(props: {initialPets:iPet[], resultsData:ResultsData
 
             {petList && petList.length < 1 && noResultsTemplate}
           </div>
+
           {pages > 1 && (
             <Pagination
               pages={pages}
