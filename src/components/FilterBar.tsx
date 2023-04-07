@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import SearchBox from "./SearchBox";
 
 type FilterBarProps = {
-  results:number,
-  sexValue:string,
-  onSearch:Function,
-  onSexFilterChange:Function,
-  onFiltersReset:Function,
-}
+  results: number;
+  sexValue: string;
+  onSearch: Function;
+  onSexFilterChange: Function;
+  onFiltersReset: Function;
+};
 
-export default function FilterBar(props:FilterBarProps) {
-  const {results,sexValue,onSearch,onSexFilterChange,onFiltersReset} = props;
-  
+export default function FilterBar(props: FilterBarProps) {
+  const { results, sexValue, onSearch, onSexFilterChange, onFiltersReset } =
+    props;
+
   const [inputText, setInputText] = useState("");
 
   const handleResetClick = () => {
@@ -22,28 +23,35 @@ export default function FilterBar(props:FilterBarProps) {
   return (
     <div className="card mb-4">
       <div className="card-body">
-        <div className="filterBar_wrapper d-flex justify-content-between flex-wrap">
-          <div className="mb-4 mb-sm-0">
+        <div className="d-flex flex-wrap flex-lg-nowrap gap-lg-3">
+
+          <div className="flex-grow-1 mb-3 flex-basis-100 mb-sm-0 mb-md-3 mb-lg-0 flex-basis-lg-auto">
             <strong>Results:</strong> {results}
           </div>
-          <div className="mb-4 mb-sm-0">
-            <div className="d-flex">
-              <SearchBox
-                onSearch={onSearch}
-                inputText={inputText}
-                onChange={setInputText}
-              />
-              <button
-                type="button"
-                className="btn btn-link"
-                onClick={handleResetClick}
+
+          <div className="flex-grow-1 mb-3 mb-sm-0 flex-basis-md-100 mb-md-3 mb-lg-0 flex-basis-lg-auto">
+            <div className="input-group">
+              <label className="input-group-text" htmlFor="sex_select" >
+                <strong>Sex</strong>
+              </label>
+              <select
+                id="sex_select"
+                className="form-select"
+                aria-label="Sex Filter"
+                value={sexValue}
+                onChange={(e) => {
+                  onSexFilterChange(e.target.value);
+                }}
               >
-                Reset
-              </button>
+                <option value={"all"} selected>
+                  All
+                </option>
+                <option value={"female"}>Female</option>
+                <option value={"male"}>Male</option>
+              </select>
             </div>
-          </div>
-          <div>
-            <label htmlFor="sex_select" style={{ marginRight: "10px" }}>
+
+            {/* <label htmlFor="sex_select" style={{ marginRight: "10px" }}>
               <strong>Sex</strong>
             </label>
             <select
@@ -55,8 +63,26 @@ export default function FilterBar(props:FilterBarProps) {
               <option value={"all"}>All</option>
               <option value={"female"}>Female</option>
               <option value={"male"}>Male</option>
-            </select>
+            </select> */}
           </div>
+
+          <div className="flex-grow-1 flex-basis-lg-50">
+            <div className="d-flex flex-wrap flex-md-nowrap gap-3 gap-lg-2">
+              <SearchBox
+                onSearch={onSearch}
+                inputText={inputText}
+                onChange={setInputText}
+              />
+              <button
+                type="button"
+                className="btn btn-danger flex-basis-100 flex-basis-md-25"
+                onClick={handleResetClick}
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

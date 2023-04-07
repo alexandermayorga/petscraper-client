@@ -4,10 +4,11 @@ type SearchBoxProps = {
   onSearch: Function;
   inputText: string;
   onChange: Function;
+  classes?: string
 };
 
 export default function SearchBox(props: SearchBoxProps) {
-  const { onSearch, inputText, onChange } = props;
+  const { onSearch, inputText, onChange, classes = "" } = props;
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") onSearch(inputText);
@@ -18,7 +19,7 @@ export default function SearchBox(props: SearchBoxProps) {
   };
 
   return (
-    <div className="input-group">
+    <div className={`input-group ${classes}`}>
       <input
         type="text"
         className="form-control"
