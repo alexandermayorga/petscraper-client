@@ -1,11 +1,11 @@
 /* Todoroki color palette - SCSS HEX */
-$burgundy: #8C2733ff;
-$royal-blue-traditional: #1E2762ff;
-$dun: #CEC3A0ff;
-$timberwolf: #D4D4D4ff;
-$alabaster: #EBEAE3ff;
-$apricot: #FCD4B8ff;
-$redwood: #B05A50ff;
+$burgundy: #8c2733ff;
+$royal-blue-traditional: #1e2762ff;
+$dun: #cec3a0ff;
+$timberwolf: #d4d4d4ff;
+$alabaster: #ebeae3ff;
+$apricot: #fcd4b8ff;
+$redwood: #b05a50ff;
 
 // BS names
 // $primary:       $burgundy;
@@ -16,8 +16,10 @@ $redwood: #B05A50ff;
 
 // $headings-font-family: 'Yellowtail', cursive;
 
-// @import "../../node_modules/bootstrap/scss/functions";
-// @import "../../node_modules/bootstrap/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/utilities";
 
 // $custom-theme-colors: (
 //     "timberwolf": #D4D4D4ff,
@@ -26,13 +28,30 @@ $redwood: #B05A50ff;
 
 // $theme-colors: map-merge($custom-theme-colors , $theme-colors);
 
-//bootstrap
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons'
 
+$utilities: (
+  "flex-basis": (
+    property: flex-basis,
+    responsive: true,
+    values: (
+      0: 0,
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      content: content,
+      auto: auto,
+    )
+  )
+ );
+
+//bootstrap
+@import "bootstrap";
+@import "bootstrap-icons";
 // @import './utilities';
 // @import url('https://fonts.googleapis.com/css2?family=Lato&family=Yellowtail&display=swap');
-
 // :root{
 //     --bs-body-font-family:'Lato', sans-serif;
 // }
+
+// @import "./utils";
