@@ -3,18 +3,19 @@ import React, { KeyboardEvent } from "react";
 type SearchBoxProps = {
   onSearch: Function;
   inputText: string;
-  onChange: Function;
+  onInputChange: Function;
+  onInputBlur: Function;
   classes?: string
 };
 
 export default function SearchBox(props: SearchBoxProps) {
-  const { onSearch, inputText, onChange, classes = "" } = props;
+  const { onSearch, inputText, onInputChange, onInputBlur, classes = "" } = props;
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") onSearch(inputText);
   };
 
-  const handleClick = () => {
+  const handleSearch = () => {
     onSearch(inputText);
   };
 
@@ -27,11 +28,12 @@ export default function SearchBox(props: SearchBoxProps) {
         aria-label="Search by Breed"
         value={inputText}
         onChange={(e) => {
-          onChange(e.target.value);
+          onInputChange(e.target.value);
         }}
         onKeyUp={handleKeyPress}
+        onBlur={handleSearch}
       />
-      <button className="btn btn-primary" type="button" onClick={handleClick}>
+      <button className="btn btn-primary" type="button" onClick={handleSearch}>
         Search
       </button>
     </div>

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import axios, { Canceler } from "axios";
-// import Image from "next/image";
 // import styles from "@/styles/Home.module.css";
 // import { Inter } from "next/font/google";
 import Layout, { siteTitle } from "@/components/Layout";
@@ -9,7 +8,7 @@ import { useState, useEffect } from "react";
 import PetCard from "@/components/PetCard";
 import { getPetsData } from "@/lib/pets";
 import Pagination from "@/components/Pagination";
-import { iPet, iPetsResult } from "@/lib/iPet";
+import { iPet } from "@/lib/iPet";
 import { BaseContext } from "next/dist/shared/lib/utils";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -165,9 +164,9 @@ export default function Home(props: {
                 results={total}
                 // queryText={queryText}
                 onSearch={handleSearchFilter}
+                onFiltersReset={handleFiltersReset}
                 sexValue={sex}
                 onSexFilterChange={handleSexFilterChange}
-                onFiltersReset={handleFiltersReset}
               />
             </div>
           </div>

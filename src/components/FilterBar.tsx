@@ -69,9 +69,10 @@ export default function FilterBar(props: FilterBarProps) {
           <div className="flex-grow-1 flex-basis-lg-50">
             <div className="d-flex flex-wrap flex-md-nowrap gap-3 gap-lg-2">
               <SearchBox
-                onSearch={onSearch}
                 inputText={inputText}
-                onChange={setInputText}
+                onInputChange={setInputText}
+                onSearch={onSearch}
+                onInputBlur={onSearch}
               />
               <button
                 type="button"
