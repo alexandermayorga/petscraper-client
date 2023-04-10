@@ -30,7 +30,6 @@ export default function Shelters() {
               email={"info@aarfhouston.org"}
               domain={"aarfhouston.org"}
             ></AddressCard>
-
           </div>
           <div className="col-sm-12 col-md-6 col-lg-4">
             <AddressCard
