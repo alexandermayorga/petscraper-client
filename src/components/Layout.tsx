@@ -17,7 +17,6 @@ export default function Layout(props:LayoutProps) {
   const { children, home } = props;
   return (
     <div>
-      <Header/>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -33,6 +32,7 @@ export default function Layout(props:LayoutProps) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Header/>
       <div className="container mb-3">
         <div className="row">
           <div className="col-sm-12">
