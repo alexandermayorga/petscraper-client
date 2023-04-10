@@ -14,7 +14,7 @@ type AddressCardProp = {
 export default function AddressCard(props: AddressCardProp) {
   const { placeName, address, city, state, zip, phone, email, domain } = props;
   return (
-    <div className="p-3 bg-light border rounded-3">
+    <div className="p-3 bg-light border rounded-3 mb-4">
       <address className="mb-0">
         <strong>{placeName}</strong>
         <br />
@@ -23,7 +23,7 @@ export default function AddressCard(props: AddressCardProp) {
         {city}, {state} {zip}
         <br />
         <abbr title="Phone">
-          <i class="bi bi-telephone-fill"></i>
+          <i className="bi bi-telephone-fill"></i>
         </abbr>{" "}
         {phone}
         <br />

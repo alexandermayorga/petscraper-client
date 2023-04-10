@@ -18,7 +18,7 @@ export default function Shelters() {
           }
         ></PageHeader>
 
-        <div className="row mb-4">
+        <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-4">
             <AddressCard
               placeName={"Adopt A Rescued Friend, Inc"}
