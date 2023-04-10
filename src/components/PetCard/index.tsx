@@ -51,9 +51,11 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
     );
   };
 
+  const handleCardClick = () => window.open(pet.petURI, '_blank');
+
   const verticalTemplate = (
     <div className="col-md-6 col-lg-4 col-xl-3">
-      <div className={`card mb-4 ${styles.petCard} ${styles[template]}`}>
+      <div className={`card mb-4 ${styles.petCard} ${styles[template]}`} onClick={handleCardClick}>
         {renderPetImage(pet)}
         <div className="card-body">
           <h3 className="card-title text-truncate">{pet.name}</h3>
@@ -78,7 +80,7 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
   const horizontalTemplate = (
     <>
       <div className="col-lg-6 col-xl-6">
-        <div className={`card mb-3 ${styles.petCard} ${styles[template]}`}>
+        <div className={`card mb-3 ${styles.petCard} ${styles[template]}`} onClick={handleCardClick}>
           <div className="row">
             <div className="col-md-5">
               {renderPetImage(pet)}

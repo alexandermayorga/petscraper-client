@@ -3,6 +3,11 @@
 }
 
 .petCard {
+  cursor: pointer;
+  transition: ease .25s all;
+  &:hover {
+    transform: translateY(-5px);
+  }
   &__imgFrame {
     background: lightgrey;
     height: 100%;
