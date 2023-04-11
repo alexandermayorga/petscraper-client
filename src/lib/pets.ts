@@ -1,3 +1,5 @@
+import { iPet } from "./iPet";
+
 export async function getPetsData() {
   // Instead of the file system,
   // fetch post data from an external API endpoint
@@ -7,4 +9,29 @@ export async function getPetsData() {
   const allPetsData = await res.json();
 
   return allPetsData;
+}
+
+export async function getAllPostIds() {
+  const baseURI = `${process.env.NEXT_PUBLIC_API_URI}api/search`;
+
+  // Call an external API endpoint to get posts
+  //TODO: Need to get next pages
+  const res = await fetch(`${baseURI}?size=10`);
+  const pets = await res.json();
+
+  // Get the paths we want to prerender based on pets
+  const paths = pets.results.map((pet: iPet) => ({
+    params: { id: pet._id, content: { ...pet } },
+  }));
+
+  return paths;
+}
+
+export async function getPetData(id: string) {
+  // Call an external API endpoint to get pet
+  const res = await fetch(`${process.env.API_URI}api/animals/id/${id}`);
+  const pet = await res.json();
+
+  // Combine the data with the id
+  return pet;
 }
