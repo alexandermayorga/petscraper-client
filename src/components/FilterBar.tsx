@@ -43,7 +43,7 @@ export default function FilterBar(props: FilterBarProps) {
                   onSexFilterChange(e.target.value);
                 }}
               >
-                <option value={"all"} selected>
+                <option value={"all"}>
                   All
                 </option>
                 <option value={"female"}>Female</option>
