@@ -22,6 +22,8 @@ export interface iPet {
     breed:     string;
     name:      string;
     sex:       Sex;
+    slug:      string;
+    extraInfo:      string;
 }
 
 export enum Age {

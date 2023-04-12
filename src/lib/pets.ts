@@ -16,20 +16,20 @@ export async function getAllPostIds() {
 
   // Call an external API endpoint to get posts
   //TODO: Need to get next pages
-  const res = await fetch(`${baseURI}?size=10`);
+  const res = await fetch(`${baseURI}?size=100`);
   const pets = await res.json();
 
   // Get the paths we want to prerender based on pets
   const paths = pets.results.map((pet: iPet) => ({
-    params: { id: pet._id, content: { ...pet } },
+    params: { slug: pet.slug },
   }));
 
   return paths;
 }
 
-export async function getPetData(id: string) {
+export async function getPetData(slug: string) {
   // Call an external API endpoint to get pet
-  const res = await fetch(`${process.env.API_URI}api/animals/id/${id}`);
+  const res = await fetch(`${process.env.API_URI}api/animals/slug/${slug}`);
   const pet = await res.json();
 
   // Combine the data with the id

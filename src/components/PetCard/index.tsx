@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 import styles from "./style.module.scss";
 import { iPet } from "@/lib/iPet";
+import SexBadge from "../SexBadge";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function PetCard(props: { pet: iPet; template?: string }) {
+  const router = useRouter();
+
   const { pet, template = "horizontal" } = props;
   //imgs[]
   //name
@@ -51,27 +56,33 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
     );
   };
 
-  const handleCardClick = () => window.open(pet.petURI, '_blank');
+  // const handleCardClick = () => window.open(pet.petURI, '_blank');
+  const handleCardClick = () => router.push(`/pets/${pet.slug}`);
 
   const verticalTemplate = (
     <div className="col-md-6 col-lg-4 col-xl-3">
-      <div className={`card mb-4 ${styles.petCard} ${styles[template]}`} onClick={handleCardClick}>
+      <div
+        className={`card mb-4 ${styles.petCard} ${styles[template]}`}
+        onClick={handleCardClick}
+      >
         {renderPetImage(pet)}
         <div className="card-body">
           <h3 className="card-title text-truncate">{pet.name}</h3>
-          <div className="card-subtitle mb-2">{renderSexBadge(pet)}</div>
-          <p title={pet.breed} className={`card-text ${styles["line-clamp-2-sm"]} ${styles.breed}`}>{pet.breed}</p>
+          <div className="card-subtitle mb-2">
+            <SexBadge sex={pet.sex} />
+          </div>
+          <p
+            title={pet.breed}
+            className={`card-text ${styles["line-clamp-2-sm"]} ${styles.breed}`}
+          >
+            {pet.breed}
+          </p>
           <p className="card-text">
             <small className="text-muted">{pet.domain}</small>
           </p>
-          <a
-            className="btn btn-dark"
-            href={pet.petURI}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href={`/pets/${pet.slug}`} className="btn btn-dark">
             View Profile
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -80,7 +91,10 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
   const horizontalTemplate = (
     <>
       <div className="col-lg-6 col-xl-6">
-        <div className={`card mb-3 ${styles.petCard} ${styles[template]}`} onClick={handleCardClick}>
+        <div
+          className={`card mb-3 ${styles.petCard} ${styles[template]}`}
+          onClick={handleCardClick}
+        >
           <div className="row">
             <div className="col-md-5">
               {renderPetImage(pet)}
@@ -90,18 +104,18 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
               <div className="card-body">
                 <h3 className="card-title text-truncate">{pet.name}</h3>
                 <div className="card-subtitle mb-2">{renderSexBadge(pet)}</div>
-                <p title={pet.breed} className={`card-text ${styles["line-clamp-2-sm"]} ${styles.breed}`}>{pet.breed}</p>
+                <p
+                  title={pet.breed}
+                  className={`card-text ${styles["line-clamp-2-sm"]} ${styles.breed}`}
+                >
+                  {pet.breed}
+                </p>
                 <p className="card-text">
                   <small className="text-muted">{pet.domain}</small>
                 </p>
-                <a
-                  className="btn btn-dark"
-                  href={pet.petURI}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href={`/pets/${pet.slug}`} className="btn btn-dark">
                   View Profile
-                </a>
+                </Link>
               </div>
             </div>
           </div>
