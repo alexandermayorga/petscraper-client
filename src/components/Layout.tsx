@@ -38,7 +38,7 @@ export default function Layout(props:LayoutProps) {
           <div className="col-sm-12">
             <main>{children}</main>
             {!home && (
-              <Link href="/" className="btn btn-primary">← Back to home</Link>
+              <Link href="/" className="btn btn-danger">← Back to home</Link>
             )}
           </div>
         </div>
