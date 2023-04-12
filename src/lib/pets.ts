@@ -40,7 +40,8 @@ async function getPets(uri:string, size:number, offset:number, page:number, resu
   return getPets(uri,size,offset+size,page+1,newResults)
 }
 
-export async function getPetData(slug: string) {
+export async function getPetData(slug: string | string[] | undefined) {
+  if(!slug || Array.isArray(slug)) return {};
   // Call an external API endpoint to get pet
   const res = await fetch(`${process.env.API_URI}api/animals/slug/${slug}`);
   const pet = await res.json();

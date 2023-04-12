@@ -90,7 +90,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const petData = await getPetData(params.slug);
+  let petData;
+  if(params) petData = await getPetData(params.slug);
 
   return {
     props: {
