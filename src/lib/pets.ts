@@ -1,4 +1,4 @@
-import { iPet } from "./iPet";
+import { iPet, iPetsResult } from "./iPet";
 
 export async function getPetsData() {
   // Instead of the file system,
@@ -14,17 +14,30 @@ export async function getPetsData() {
 export async function getAllPostIds() {
   const baseURI = `${process.env.NEXT_PUBLIC_API_URI}api/search`;
 
+  // "total":124,"pages":2,"size":100,"offset":0,"count":100,"r
+
   // Call an external API endpoint to get posts
   //TODO: Need to get next pages
-  const res = await fetch(`${baseURI}?size=100`);
-  const pets = await res.json();
+  const results = await getPets(baseURI, 100, 0, 1)
 
   // Get the paths we want to prerender based on pets
-  const paths = pets.results.map((pet: iPet) => ({
+  const paths = results.map((pet: iPet) => ({
     params: { slug: pet.slug },
   }));
 
   return paths;
+}
+
+async function getPets(uri:string, size:number, offset:number, page:number, results:iPet[] = []) : Promise<iPet[]> {
+  const fetchURI = `${uri}?size=${size}&offset=${offset}`;
+  const res = await fetch(fetchURI);
+  const petsResult:iPetsResult = await res.json();
+
+  const newResults = [...results,...petsResult.results]
+
+  if(petsResult.pages == page) return newResults;
+
+  return getPets(uri,size,offset+size,page+1,newResults)
 }
 
 export async function getPetData(slug: string) {
