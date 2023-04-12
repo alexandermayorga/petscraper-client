@@ -9,7 +9,7 @@ export default function Documentation() {
         <title>{`API Documentation | ${siteTitle}`}</title>
       </Head>
       {/* <section style={{ minHeight: "80vh", marginTop: "-1.5rem" }}> */}
-      <section>
+      <section className="mb-4">
         <PageHeader
           pageTitle={"API"}
           pageLeadText={"API documentation"}
@@ -165,7 +165,7 @@ export default function Documentation() {
                 <strong>{'"name"'} :</strong> The {"animal's"} name
               </li>
             </ul>
-            <div className="d-block p-5"></div>
+            {/* <div className="d-block p-5"></div> */}
           </div>
         </div>
       </section>
