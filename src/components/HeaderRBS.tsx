@@ -16,15 +16,18 @@ export default function HeaderRBS() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
       <Container>
-        <Navbar.Brand href="/">
-          <Image
-            src={logo} // Route of the image file
-            height={32} // Desired size with correct aspect ratio
-            width={32} // Desired size with correct aspect ratio
-            alt="Logo | The Rescue Park"
-          />{" "}
-          The Rescue Park
-        </Navbar.Brand>
+        <Link href="/" passHref legacyBehavior>
+          <Navbar.Brand>
+            <Image
+              src={logo} // Route of the image file
+              height={32} // Desired size with correct aspect ratio
+              width={32} // Desired size with correct aspect ratio
+              alt="Logo | The Rescue Park"
+            />{" "}
+            The Rescue Park
+          </Navbar.Brand>
+        </Link>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
