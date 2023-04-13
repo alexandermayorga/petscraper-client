@@ -29,7 +29,7 @@ export default function FilterBar(props: FilterBarProps) {
             <strong>Results:</strong> {results}
           </div>
 
-          <div className="flex-grow-1 mb-3 mb-sm-0 flex-basis-md-100 mb-md-3 mb-lg-0 flex-basis-lg-auto">
+          <div className="flex-grow-1 mb-3 mb-md-0 flex-basis-md-100 mb-md-3 mb-lg-0 flex-basis-lg-auto">
             <div className="input-group">
               <label className="input-group-text" htmlFor="sex_select" >
                 <strong>Sex</strong>

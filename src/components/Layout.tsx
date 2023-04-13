@@ -4,6 +4,7 @@ import Head from "next/head";
 // import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Footer from "./Footer";
+// import Header from "./Header";
 import HeaderRBS from "./HeaderRBS";
 
 export const siteTitle = "The Rescue Park";
@@ -32,6 +33,7 @@ export default function Layout(props:LayoutProps) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      {/* <Header/> */}
       <HeaderRBS/>
       <div className="container mb-3">
         <div className="row">

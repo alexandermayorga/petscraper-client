@@ -1,17 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Header() {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const logo = "/favicon-32x32.png";
   const router = useRouter();
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   const addActiveIfIsPage = (pageName: string) => {
     return router.pathname == `${pageName}` ? "active" : "";
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <div className="container">
         <Link href="/" className="navbar-brand">
           <Image
@@ -28,13 +32,14 @@ export default function Header() {
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded={!isNavCollapsed ? true : false}
           aria-label="Toggle navigation"
+          onClick={handleNavCollapse} 
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className={`nav-item`}>
               <Link

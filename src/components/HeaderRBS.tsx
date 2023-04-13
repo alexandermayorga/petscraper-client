@@ -14,7 +14,7 @@ export default function HeaderRBS() {
     return router.pathname == pageName;
   };
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
+    <Navbar bg="dark" variant="dark" expand="md" className="mb-4">
       <Container>
         <Link href="/" passHref legacyBehavior>
           <Navbar.Brand>
