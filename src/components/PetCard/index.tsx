@@ -5,6 +5,8 @@ import { iPet } from "@/lib/iPet";
 import SexBadge from "../SexBadge";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { formatDistance } from 'date-fns'
+
 
 export default function PetCard(props: { pet: iPet; template?: string }) {
   const router = useRouter();
@@ -65,7 +67,16 @@ export default function PetCard(props: { pet: iPet; template?: string }) {
         className={`card mb-4 ${styles.petCard} ${styles[template]}`}
         onClick={handleCardClick}
       >
-        {renderPetImage(pet)}
+        <div className="position-relative">
+          {renderPetImage(pet)}
+          <div className="card-img-overlay">
+            <p className="card-text bottom-0 end-0 position-absolute mb-3 me-3">
+              <span className="badge text-bg-light shadow-lg">
+                <small><i className="bi bi-calendar3-event me-1"></i>{formatDistance(new Date(pet.createdAt), new Date(), { addSuffix: true })}</small>
+              </span>
+            </p>
+          </div>
+        </div>
         <div className="card-body">
           <h3 className="card-title text-truncate">{pet.name}</h3>
           <div className="card-subtitle mb-2">

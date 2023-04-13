@@ -5,7 +5,7 @@ import { getAllPostIds, getPetData } from "@/lib/pets";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { format, formatDistance, formatRelative, subDays } from 'date-fns'
+import { formatDistance, formatRelative } from "date-fns";
 
 type PetProps = {
   petData: iPet;
@@ -47,26 +47,36 @@ const Pet = (props: PetProps) => {
         </div>
         <div className="col-sm-7">
           <h1>{petData.name}</h1>
-          <div>
-            <p>
-              <SexBadge sex={petData.sex}></SexBadge>
-              <br />
-              Age: {petData.age}
-              <br />
-              Breed: {petData.breed}
-              <br />
-              Added: {formatDistance(new Date(petData.createdAt), new Date(), { addSuffix: true })}
-              <br />
-              Last Updated: {formatRelative(new Date(petData.updatedAt), new Date())}
-            </p>
+          <div className="fs-5">
+            <SexBadge sex={petData.sex}></SexBadge>
           </div>
+          <hr />
+          <ul className="list-unstyled fs-4">
+            <li>
+              <strong>Age:</strong> {petData.age}
+            </li>
+            <li>
+              <strong>Breed:</strong> {petData.breed}
+            </li>
+            <li>
+              <strong>Added:</strong>{" "}
+              {formatDistance(new Date(petData.createdAt), new Date(), {
+                addSuffix: true,
+              })}
+            </li>
+            <li>
+              <strong>Last Updated:</strong>{" "}
+              {formatRelative(new Date(petData.updatedAt), new Date())}
+            </li>
+          </ul>
           <div>
             <Link
               href={petData.petURI}
-              className="btn btn-primary"
+              className="btn btn-dark"
               target="_blank"
             >
-              View Original Post
+              <i className="bi bi-box-arrow-up-right me-1"></i> View Original
+              Post
             </Link>
           </div>
         </div>
@@ -91,7 +101,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   let petData;
-  if(params) petData = await getPetData(params.slug);
+  if (params) petData = await getPetData(params.slug);
 
   return {
     props: {

@@ -18,35 +18,45 @@ export default function About() {
         <div className="row">
           <div className="col-sm-12 ">
             <p>
-              Hi, my name is Alex and {"I'm"} a
+              Hi, my name is Alex Mayorga and {"I'm"} a
               <span role="img" aria-label="laptop emoji" className="mx-2">
                 👨🏻‍💻
               </span>
-              web developer from
-              <span role="img" aria-label="laptop emoji" className="mx-2">
-                🇳🇮
+              full stack web developer based in
+              <span role="img" aria-label="pin emoji" className="mx-2">
+                📍
               </span>
-              Nicaragua currently living in Houston,TX.
+              Houston,TX.
             </p>
             <p>
-              Before I started this project I was initially looking for ideas to
+              I started this project wanting to combine a topic that matter to
+              me, that other people shared an interest on, and my web dev
+              skills. As I brainstormed on this I ended up thinking about dogs,
+              adopting a pet, and local shelters. I remembered that whenever{" "}
+              {"I've"} looked at shelter websites I noticed some of them were
+              not the most user friendly. I also {"didn't"} want to looked at
+              every local website shelter when browsing the web.
+              {/* Before I started this project I was initially looking for ideas to
               help me practice my web dev skills. I wanted to do something that
               combined a topic that matter to me and that other people might
               share an interest on. {"I've"} always been a dog person and for a
               long time {"I've"} been wanting to adopt one but my current
-              situation has not allowed for it (...yet).
+              situation has not allowed for it (...yet). */}
             </p>
             <p>
-              So with that in mind, whenever {"I've"} looked at shelter websites
-              I noticed some of them were not the most user friendly. Hence, I
-              thought on doing something for our furry friends
+              So with that in mind, I thought on doing something that will help
+              future pet owners with their search as well as helping our furry
+              friends
               <span role="img" aria-label="dog emoji" className="mx-2">
                 🐶
               </span>{" "}
-              and help them find a forever home
-              <span role="img" aria-label="dog emoji" className="mx-2">
+              find a forever home
+              <span role="img" aria-label="happy face emoji" className="mx-2">
                 😊
               </span>
+              <span role="img" aria-label="house emoji" className="me-2">
+                🏡
+              </span>. The goal of the website is to centralize all the info about adoption available animals in Houston. Each animal profile redirects to the original post to get more info on the adoption details. 
             </p>
             <p>
               If you too are planning on owning a dog, cat, etc. I encourage you
@@ -78,10 +88,10 @@ export default function About() {
                     only are you saving that animal’s life, but you are also
                     opening up a space for another animal’s life to be saved.
                   </p>
-                  <footer className="blockquote-footer text-right text-light mb-0">
+                  <footer className="blockquote-footer text-right  mb-0">
                     taken from{" "}
                     <cite title="Source Title">
-                      <a href="http://" className="text-light">
+                      <a href="http://" className="">
                         Why Everyone Should “Adopt Don’t Shop”
                       </a>
                     </cite>
