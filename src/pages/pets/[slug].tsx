@@ -42,7 +42,7 @@ const Pet = (props: PetProps) => {
             alt={`${petData.name} | ${petData.breed} | ${petData.age}`}
             width={376}
             height={376}
-            className="img-fluid"
+            className="img-fluid mb-3 mb-sm-0"
           />
         </div>
         <div className="col-sm-7">
@@ -72,7 +72,7 @@ const Pet = (props: PetProps) => {
           <div>
             <Link
               href={petData.petURI}
-              className="btn btn-dark"
+              className="btn btn-dark btn-lg"
               target="_blank"
             >
               <i className="bi bi-box-arrow-up-right me-1"></i> View Original

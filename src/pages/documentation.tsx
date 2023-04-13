@@ -17,9 +17,10 @@ export default function Documentation() {
 
         <div className="row">
           <div className="col-sm-12">
-            <div className="display-4">API end points</div>
+            <h2 className="">API end points</h2>
+            <p>This website has {"it's"} own API server. Below is a partial brief of how it works.</p>
             <hr />
-            <div className="h3">Get all Documents</div>
+            <h3>Get all Documents</h3>
             <p>
               By default you will get 20 documents. You can define the amount of
               results and the offset (see more below).
@@ -30,7 +31,7 @@ export default function Documentation() {
             >
               https://petscraper.herokuapp.com/api/animals/
             </code>
-            <div className="h3">Filter by Sex</div>
+            <h3>Filter by Sex</h3>
             <p>
               You can filter out your results by sex. The {'":sex"'} parameter
               accepts {'"male"'} and {'"female"'}.
@@ -41,7 +42,7 @@ export default function Documentation() {
             >
               https://petscraper.herokuapp.com/api/animals/sex/:sex
             </code>
-            <div className="h3">Search by Breed</div>
+            <h3>Search by Breed</h3>
             <p>
               You can submit a GET request with your {'"SEARCH_TEXT"'} as the
               value for the {'"breed"'} query parameter.

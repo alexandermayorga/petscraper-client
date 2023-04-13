@@ -29,34 +29,38 @@ export default function About() {
               Houston,TX.
             </p>
             <p>
-              I started this project wanting to combine a topic that matter to
-              me, that other people shared an interest on, and my web dev
-              skills. As I brainstormed on this I ended up thinking about dogs,
-              adopting a pet, and local shelters. I remembered that whenever{" "}
-              {"I've"} looked at shelter websites I noticed some of them were
-              not the most user friendly. I also {"didn't"} want to looked at
-              every local website shelter when browsing the web.
-              {/* Before I started this project I was initially looking for ideas to
-              help me practice my web dev skills. I wanted to do something that
-              combined a topic that matter to me and that other people might
-              share an interest on. {"I've"} always been a dog person and for a
-              long time {"I've"} been wanting to adopt one but my current
-              situation has not allowed for it (...yet). */}
+              I started this project aiming to combine a topic that matter to
+              me, something other people shared would an interest on, and my web
+              dev skills. As I brainstormed on this I ended up thinking about
+              dogs, adopting a pet, and local shelters. I remembered that when{" "}
+              {"I've"} looked at shelter websites, some of them were not the
+              most user friendly. I also {"didn't"} want to look at every local
+              website shelter separately when browsing the web.
             </p>
             <p>
               So with that in mind, I thought on doing something that will help
               future pet owners with their search as well as helping our furry
               friends
-              <span role="img" aria-label="dog emoji" className="mx-2">
+              <span role="img" aria-label="dog emoji" className="ms-2 me-1">
                 🐶
-              </span>{" "}
+              </span>
+              <span role="img" aria-label="cat emoji" className="me-2">
+                🐱
+              </span>
               find a forever home
-              <span role="img" aria-label="happy face emoji" className="mx-2">
+              <span
+                role="img"
+                aria-label="happy face emoji"
+                className="ms-2 me-1"
+              >
                 😊
               </span>
-              <span role="img" aria-label="house emoji" className="me-2">
+              <span role="img" aria-label="house emoji" className="me-1">
                 🏡
-              </span>. The goal of the website is to centralize all the info about adoption available animals in Houston. Each animal profile redirects to the original post to get more info on the adoption details. 
+              </span>
+              . The {"website's"} goal is to centralize adoption information on
+              available animals in Houston. Each animal profile will then
+              redirect to the original post to get all adoption details.
             </p>
             <p>
               If you too are planning on owning a dog, cat, etc. I encourage you
