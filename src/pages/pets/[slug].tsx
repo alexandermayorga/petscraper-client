@@ -95,7 +95,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // console.log(paths)
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -107,6 +107,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       petData,
     },
+    revalidate: 1*(60*60)
   };
 };
 
