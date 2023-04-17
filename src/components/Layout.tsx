@@ -37,7 +37,7 @@ export default function Layout(props:LayoutProps) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <HeaderRBS/>
-      <div className="container mb-3">
+      <div className="container mb-4">
         <div className={justify ? `row justify-content-${justify}` : "row"}>
           <div className={cols ? `col-sm-${cols}` : "col-sm-12"}>
             <main>{children}</main>
