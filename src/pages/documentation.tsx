@@ -6,7 +6,7 @@ export default function Documentation() {
   return (
     <Layout>
       <Head>
-        <title>{`API Documentation | ${siteTitle}`}</title>
+        <title>API Documentation</title>
       </Head>
       {/* <section style={{ minHeight: "80vh", marginTop: "-1.5rem" }}> */}
       <section className="mb-4">

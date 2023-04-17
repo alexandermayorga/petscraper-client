@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout, { siteTitle } from "@/components/Layout";
 import SexBadge from "@/components/SexBadge";
 import { iPet } from "@/lib/iPet";
 import { getAllPostIds, getPetData } from "@/lib/pets";
@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistance, formatRelative } from "date-fns";
+import Head from "next/head";
 
 type PetProps = {
   petData: iPet;
@@ -35,6 +36,9 @@ const Pet = (props: PetProps) => {
 
   return (
     <Layout cols={10} justify="around">
+      <Head>
+        <title>{petData.name} {petData.breed} {petData.age} {petData.sex} available for adoption | Houston TX</title>
+      </Head>
       <div className="row mb-4">
         {petData.imgs.length > 0 && (
           <div className="col-sm-5">

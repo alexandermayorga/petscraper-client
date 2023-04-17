@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>{`About and Contact | ${siteTitle}`}</title>
+        <title>About and Contact</title>
       </Head>
       {/* <section style={{ minHeight: "80vh", marginTop: "-1.5rem" }}> */}
       <section>

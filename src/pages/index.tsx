@@ -153,7 +153,7 @@ export default function Home(props: {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{siteTitle} | Directory Site for animals in rescue shelters available for adoption</title>
       </Head>
       <main>
         <div className="container">
