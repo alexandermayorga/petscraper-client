@@ -34,18 +34,22 @@ const Pet = (props: PetProps) => {
   //   }
 
   return (
-    <Layout>
+    <Layout cols={10} justify="around">
       <div className="row mb-4">
-        <div className="col-sm-5">
-          <Image
-            src={petData.imgs[0]}
-            alt={`${petData.name} | ${petData.breed} | ${petData.age}`}
-            width={376}
-            height={376}
-            className="img-fluid mb-3 mb-sm-0"
-          />
-        </div>
-        <div className="col-sm-7">
+        {petData.imgs.length > 0 && (
+          <div className="col-sm-5">
+            <Image
+              src={petData.imgs[0]}
+              alt={`${petData.name} | ${petData.breed} | ${petData.age}`}
+              width={376}
+              height={376}
+              className="img-fluid mb-3 mb-sm-0"
+            />
+          </div>
+        )}
+        <div
+          className={`${petData.imgs.length > 0 ? "col-sm-7" : "col-sm-12"}`}
+        >
           <h1>{petData.name}</h1>
           <div className="fs-5">
             <SexBadge sex={petData.sex}></SexBadge>
@@ -72,7 +76,7 @@ const Pet = (props: PetProps) => {
           <div>
             <Link
               href={petData.petURI}
-              className="btn btn-dark btn-lg"
+              className="btn btn-outline-dark btn-lg"
               target="_blank"
             >
               <i className="bi bi-box-arrow-up-right me-1"></i> View Original
@@ -95,7 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // console.log(paths)
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 };
 
@@ -107,7 +111,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       petData,
     },
-    revalidate: 1*(60*60)
+    revalidate: 1 * (60 * 60),
   };
 };
 
