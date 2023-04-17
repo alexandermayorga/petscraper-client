@@ -12,10 +12,13 @@ export const siteTitle = "The Rescue Park";
 type LayoutProps = {
   children: React.ReactNode,
   home?: boolean
+  cols?: number
+  justify?: "start" | "end" | "center" | "between" | "around" | "evenly"
 }
 
+
 export default function Layout(props:LayoutProps) {
-  const { children, home } = props;
+  const { children, home, cols, justify } = props;
   return (
     <div>
       <Head>
@@ -33,11 +36,10 @@ export default function Layout(props:LayoutProps) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      {/* <Header/> */}
       <HeaderRBS/>
       <div className="container mb-3">
-        <div className="row">
-          <div className="col-sm-12">
+        <div className={justify ? `row justify-content-${justify}` : "row"}>
+          <div className={cols ? `col-sm-${cols}` : "col-sm-12"}>
             <main>{children}</main>
             {!home && (
               <Link href="/" className="btn btn-danger">← Back to home</Link>
