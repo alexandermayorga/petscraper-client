@@ -29,7 +29,7 @@ export default function Documentation() {
               className="bg-white d-block p-3 rounded mb-4"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}
             >
-              https://petscraper.herokuapp.com/api/animals/
+              https://pet-scraper.onrender.com/api/animals/
             </code>
             <h3>Filter by Sex</h3>
             <p>
@@ -40,7 +40,7 @@ export default function Documentation() {
               className="bg-white d-block p-3 rounded mb-4"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}
             >
-              https://petscraper.herokuapp.com/api/animals/sex/:sex
+              https://pet-scraper.onrender.com/api/animals/sex/:sex
             </code>
             <h3>Search by Breed</h3>
             <p>
@@ -51,7 +51,7 @@ export default function Documentation() {
               className="bg-white d-block p-3 rounded mb-4"
               style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}
             >
-              https://petscraper.herokuapp.com/api/search?breed=SEARCH_TEXT
+              https://pet-scraper.onrender.com/api/search?breed=SEARCH_TEXT
             </code>
             <div className="d-block p-4"></div>
           </div>
