@@ -30,6 +30,6 @@ By leveraging Node.js, Express, Cheerio, MongoDB, Mongoose, React, Next.js, Type
 
 ## Notes
 
-This repository refers only to the front-end of the project. To check the back-end code of this project please refer to:
+This repository only encapsulates the front-end of the project. To check the back-end code of this project please refer to:
 
 https://github.com/alexandermayorga/petscraper
